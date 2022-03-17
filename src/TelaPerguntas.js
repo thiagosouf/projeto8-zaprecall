@@ -1,4 +1,4 @@
-export default function TelaPerguntas() {
+  export default function TelaPerguntas() {
     return (
         <div className="tela-perguntas">
             <header className="header">
@@ -9,7 +9,7 @@ export default function TelaPerguntas() {
                 {/* <Perguntas /> */}
                 <button className="botaoPergunta">
                     <span>Pergunta 1</span>
-                    <img src="./img/play.png"></img>
+                    <img src="./img/play.png">img7</img>
                 </button>
             </nav>
             <footer>
