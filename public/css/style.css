@@ -72,6 +72,18 @@ nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
+}
+
+nav button{
+    padding: 0;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 0px;
+    font-family: 'Recursive', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 5px;
 }
 
 .botaoPergunta{
@@ -86,14 +98,33 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 0px;
-    margin-bottom: 5px;
+    
+    padding: 1px 4px;
+    
+}
+
+.card{
+    height: 54px;
+    width: 170px;
+    background-color: #FFFFD4;
+    font-family: 'Recursive', sans-serif;
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 13px 6px;
+    text-align: left;
+    position: relative;
+}
+
+.setinha{
+    position:absolute;
+    right: 8px;
+    bottom: 7px;
 }
 
 footer{
     height: 50px;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     background-color: #ffffff;
     font-family: 'Recursive', sans-serif;
