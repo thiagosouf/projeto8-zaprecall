@@ -1,0 +1,105 @@
+body{
+    background-color: 
+    #FB6B6B;
+    
+}
+.telaInicial{
+    height: 100vh;
+    font-family: 'Righteous', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logoInicial{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logoGrande{
+    height: 65px;
+    width: 55px;
+}
+
+.tituloGrande{
+    font-size: 25px;
+    color: #FFFFFF;
+}
+
+.botaoInicial button{
+    height: 31px;
+    width: 141px;
+    font-family: 'Recursive', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    border-radius: 5px;
+    border: solid 1px #D70900;
+    color:#D70900
+
+}
+/* Tela2 */
+/* .telaPerguntas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 19px;
+    margin-bottom: 41px;
+}
+
+.logoPadrao{
+    height: 30px;
+    width: 26px;
+}
+
+.tituloPadrao{
+    padding: 0 7px;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.botaoPergunta{
+    height: 40px;
+    width: 182px;
+    background-color: #FFFFFF;
+    color:#333333;
+    font-family: 'Recursive', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0px;
+}
+
+footer{
+    height: 50px;
+    width: 100vw;
+    position: absolute;
+    bottom: 0px;
+    background-color: #ffffff;
+    font-family: 'Recursive', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
