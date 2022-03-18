@@ -1,6 +1,7 @@
 
   import ChamarPerguntas from "./Perguntas"
 import Perguntas from "./Perguntas"
+// import CardPerguntas from "./CardPerguntas"
   
   export default function TelaPerguntas() {
     
@@ -13,6 +14,7 @@ import Perguntas from "./Perguntas"
             </header>
             <nav>
                 <Perguntas />
+                {/* <CardPerguntas /> */}
             </nav>
             <footer>
                 <span>0/4 CONCLUíDOS</span>
