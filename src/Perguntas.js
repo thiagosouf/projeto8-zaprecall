@@ -33,40 +33,15 @@ function Card(props){
     ) :(
         <div className="card">
             <span>{props.resposta}</span>
+            <div className="botoes">
+            <button className="nao-lembrei">Não lembrei</button>
+            <button className="quase">Quase não lembrei</button>
+            <button className="zap">Zap!</button>
+            </div>
+            
         </div>
     )
-
-
-    // ISSO TA FUNCIONANDO SÓ MUDANDO O TEXTO
-    // const [texto, setTexto] = React.useState(props.card)
-    // return (
-
-    //     <div className="card">
-    //         <span>{texto}</span>
-    //         <div onClick={()=>setTexto(props.resposta)}><img className="setinha" src="./img/setinha.png"></img></div>
-    //     </div>
-    // )
 }
-
-function CardPergunta(props){
-return(
-    <>
-        <span>{props.card}</span>
-        <div><img className="setinha" src="./img/setinha.png"></img></div>
-    </>
-)
-}
-
-// function CardResposta(props){
-// return(
-//     <div className="card">
-//     <span>{props.opcao}</span>
-//     </div>
-// )
-// }
-
-
-
 
 export default function ChamarPerguntas(){
     const parametros = [

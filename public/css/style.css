@@ -104,13 +104,13 @@ nav button{
 }
 
 .card{
-    height: 54px;
-    width: 170px;
+    height: 64px;
+    width: 180px;
     background-color: #FFFFD4;
     font-family: 'Recursive', sans-serif;
     font-weight: 400;
     border-radius: 5px;
-    padding: 13px 6px;
+    padding: 13px 6px 5px;
     text-align: left;
     position: relative;
 }
@@ -120,6 +120,27 @@ nav button{
     right: 8px;
     bottom: 7px;
 }
+
+.botoes{
+    display: flex;
+    align-items:flex-end;
+    justify-content: space-evenly;
+    /* position: absolute;
+    bottom: 0; */
+}
+.nao-lembrei, .quase, .zap{
+    height: 24px;
+    width: 55px;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 7px;
+    color: #FFFFFF;
+}
+
+.nao-lembrei{background-color: #ff3030;}
+.quase{background-color: #ff922e;}
+.zap{background-color: #2fbe34;}
+
 
 footer{
     height: 50px;
