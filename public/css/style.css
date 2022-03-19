@@ -155,7 +155,22 @@ footer{
     font-weight: 400;
     font-size: 12px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
+}
+footer img{
+    margin-right: 6px;
+}
+
+.textoFinal{
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    
+}
+
+.icones-footer img{
+    margin-right: 2px;
 }

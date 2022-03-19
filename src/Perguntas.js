@@ -1,14 +1,14 @@
 import React from "react"
-
+let end = 0
 function Perguntas(props) {
     
-    const [pergunta, setPergunta] = React.useState(<Pergunta opcao={props.opcao} styleTxt={'none'} styleCor={""}/>)
+    const [pergunta, setPergunta] = React.useState(<Pergunta  icone={"./img/play.png"} opcao={props.opcao} styleTxt={'none'} styleCor={""}/>)
     
 
     return (
         <button onClick={() => {
             
-            setPergunta(<Card opcao={props.opcao} card={props.card} resposta={props.resposta} contadorSoma={props.contadorSoma}/>)}} >
+            setPergunta(<Card opcao={props.opcao} icone={"./img/play.png"} card={props.card} resposta={props.resposta} contadorSoma={props.contadorSoma} criaIcones={props.criaIcones} />)}} >
             {pergunta}
             
         </button>
@@ -19,14 +19,14 @@ function Pergunta(props){
     return(
         <div className="botaoPergunta" style={{textDecoration: props.styleTxt,color: props.styleCor}}>
             <span>{props.opcao}</span>
-            <img src="./img/play.png"></img>
+            <img src={props.icone}></img>
         </div>
     )
 }
 
 function Card(props){
     const [card, setCard] = React.useState(false)
-    const [click, setClick] = React.useState("black")
+    const [click, setClick] = React.useState({color:"black", icone:"./img/play.png"})
     
     return !card ?(
         <div className="card" >
@@ -34,23 +34,23 @@ function Card(props){
             <button onClick={()=>setCard(true)}><img className="setinha" src="./img/setinha.png"></img></button>
         </div>
     ) :
-    (click==="black")?(
+    (click.color==="black")?(
         
         <>
         
         <div className="card">
             <span>{props.resposta}</span>
             <div className="botoes">
-            <button onClick={()=>{props.contadorSoma();setClick("#FF3030")}} className="nao-lembrei">Não lembrei</button>
-            <button onClick={()=>{props.contadorSoma();setClick("#FF922E")}} className="quase">Quase não lembrei</button>
-            <button onClick={()=>{props.contadorSoma();setClick("#2FBE34")}} className="zap">Zap!</button>
-                   
+            <button onClick={()=>{props.contadorSoma();props.criaIcones("./img/red.png");setClick({color:"#FF3030", icone:"./img/red.png"})}} className="nao-lembrei">Não lembrei</button>
+            <button onClick={()=>{props.contadorSoma();props.criaIcones("./img/yellow.png");setClick({color:"#FF922E", icone:"./img/yellow.png"})}}  className="quase">Quase não lembrei</button>
+            <button onClick={()=>{props.contadorSoma();props.criaIcones("./img/green.png");end=1;setClick({color:"#2FBE34", icone:"./img/green.png"})}} className="zap">Zap!</button>
             
+           
             </div>
             
         </div>
         </>
-    ):(<><Pergunta opcao={props.opcao} styleTxt={"line-through"} styleCor={click}/></>)
+    ):(<><Pergunta opcao={props.opcao} icone={props.icone}styleTxt={"line-through"} styleCor={click.color} icone={click.icone}/>{console.log(end=end+1)}</>)
 }
 
 export default function ChamarPerguntas(props){
@@ -69,7 +69,7 @@ export default function ChamarPerguntas(props){
     return(
         <>
         {parametros.map(dados =>
-            <Perguntas contadorSoma={props.contadorSoma} opcao={dados.opcao} card={dados.card} resposta={dados.resposta}/>)}
+            <Perguntas contadorSoma={props.contadorSoma} criaIcones={props.criaIcones} opcao={dados.opcao} card={dados.card} resposta={dados.resposta}/>)}
         </>
     )
 }
