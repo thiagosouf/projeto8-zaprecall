@@ -1,13 +1,14 @@
 import React from "react"
 
 
-function Perguntas(props) {
 
-    const [pergunta, setPergunta] = React.useState(<Pergunta opcao={props.opcao}/>)
+function Perguntas(props) {
     
+    const [pergunta, setPergunta] = React.useState(<Pergunta opcao={props.opcao}/>)
+      
 
     return (
-        <button onClick={() => setPergunta(<Card resposta={props.resposta} card={props.card} />)} >
+        <button onClick={() => setPergunta(<Card resposta={props.resposta} card={props.card} opcao={props.opcao}/>)} >
             {pergunta}
             
         </button>
@@ -25,21 +26,24 @@ function Pergunta(props){
 
 function Card(props){
     const [card, setCard] = React.useState(false)
+    const [pergunta, setPergunta] = React.useState(<Pergunta opcao={props.opcao}/>)
     return !card ?(
         <div className="card">
             <span>{props.card}</span>
             <button onClick={()=>setCard(true)}><img className="setinha" src="./img/setinha.png"></img></button>
         </div>
     ) :(
-        <div className="card">
-            <span>{props.resposta}</span>
-            <div className="botoes">
-            <button className="nao-lembrei">Não lembrei</button>
-            <button className="quase">Quase não lembrei</button>
-            <button className="zap">Zap!</button>
-            </div>
+        // *******************8*********TEMOS ALGUMA COISA AQUI    O pergunta vai ser a resposta e o set vai ser a volta
+        <>{pergunta}</>
+        // <div className="card">
+        //     <span>{props.resposta}</span>
+        //     <div className="botoes">
+        //     <button className="nao-lembrei" >Não lembrei</button>
+        //     <button className="quase" >Quase não lembrei</button>
+        //     <button className="zap" >Zap!</button>
+        //     </div>
             
-        </div>
+        // </div>
     )
 }
 

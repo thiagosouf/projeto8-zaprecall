@@ -1,8 +1,5 @@
-
-  import ChamarPerguntas from "./Perguntas"
 import Perguntas from "./Perguntas"
-// import CardPerguntas from "./CardPerguntas"
-  
+let cont = 0;
   export default function TelaPerguntas() {
     
 
@@ -13,11 +10,10 @@ import Perguntas from "./Perguntas"
                 <span className="tituloPadrao">ZapRecall</span>
             </header>
             <nav>
-                <Perguntas />
-                {/* <CardPerguntas /> */}
+                <Perguntas/>
             </nav>
             <footer>
-                <span>0/4 CONCLUíDOS</span>
+                <span>{cont}/4 CONCLUíDOS</span>
             </footer>
 
         </div>
