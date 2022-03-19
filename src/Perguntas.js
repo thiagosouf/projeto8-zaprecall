@@ -1,22 +1,21 @@
 import React from "react"
 
-
 function Perguntas(props) {
 
-    const [pergunta, setPergunta] = React.useState(<Pergunta opcao={props.opcao}/>)
+    const [pergunta, setPergunta] = React.useState(<Pergunta opcao={props.opcao} styleTxt={'none'} styleCor={""}/>)
     
 
     return (
-        <button onClick={() => setPergunta(<Card resposta={props.resposta} card={props.card} />)} >
+        <button onClick={() => setPergunta(<Card opcao={props.opcao} card={props.card} resposta={props.resposta}/>)} >
             {pergunta}
             
         </button>
-    )
+    )   
 }
 
 function Pergunta(props){
     return(
-        <div className="botaoPergunta">
+        <div className="botaoPergunta" style={{textDecoration: props.styleTxt,color: props.styleCor}}>
             <span>{props.opcao}</span>
             <img src="./img/play.png"></img>
         </div>
@@ -25,22 +24,27 @@ function Pergunta(props){
 
 function Card(props){
     const [card, setCard] = React.useState(false)
+    const [click, setClick] = React.useState("black")
+    
     return !card ?(
-        <div className="card">
+        <div className="card" >
             <span>{props.card}</span>
             <button onClick={()=>setCard(true)}><img className="setinha" src="./img/setinha.png"></img></button>
         </div>
-    ) :(
+    ) :
+    (click==="black")?(
+        <>
         <div className="card">
             <span>{props.resposta}</span>
             <div className="botoes">
-            <button className="nao-lembrei">Não lembrei</button>
-            <button className="quase">Quase não lembrei</button>
-            <button className="zap">Zap!</button>
+            <button onClick={()=>setClick("#FF3030")} className="nao-lembrei">Não lembrei</button>
+            <button onClick={()=>setClick("#FF922E")} className="quase">Quase não lembrei</button>
+            <button onClick={()=>setClick("#2FBE34")} className="zap">Zap!</button>
             </div>
             
         </div>
-    )
+        </>
+    ):(<Pergunta opcao={props.opcao} styleTxt={"line-through"} styleCor={click}/>)
 }
 
 export default function ChamarPerguntas(){
