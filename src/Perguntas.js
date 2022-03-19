@@ -1,5 +1,4 @@
 import React from "react"
-let end = 0
 function Perguntas(props) {
     
     const [pergunta, setPergunta] = React.useState(<Pergunta  icone={"./img/play.png"} opcao={props.opcao} styleTxt={'none'} styleCor={""}/>)
@@ -43,14 +42,14 @@ function Card(props){
             <div className="botoes">
             <button onClick={()=>{props.contadorSoma();props.criaIcones("./img/red.png");setClick({color:"#FF3030", icone:"./img/red.png"})}} className="nao-lembrei">Não lembrei</button>
             <button onClick={()=>{props.contadorSoma();props.criaIcones("./img/yellow.png");setClick({color:"#FF922E", icone:"./img/yellow.png"})}}  className="quase">Quase não lembrei</button>
-            <button onClick={()=>{props.contadorSoma();props.criaIcones("./img/green.png");end=1;setClick({color:"#2FBE34", icone:"./img/green.png"})}} className="zap">Zap!</button>
+            <button onClick={()=>{props.contadorSoma();props.criaIcones("./img/green.png");setClick({color:"#2FBE34", icone:"./img/green.png"})}} className="zap">Zap!</button>
             
            
             </div>
             
         </div>
         </>
-    ):(<><Pergunta opcao={props.opcao} icone={props.icone}styleTxt={"line-through"} styleCor={click.color} icone={click.icone}/>{console.log(end=end+1)}</>)
+    ):(<><Pergunta opcao={props.opcao} styleTxt={"line-through"} styleCor={click.color} icone={click.icone}/></>)
 }
 
 export default function ChamarPerguntas(props){

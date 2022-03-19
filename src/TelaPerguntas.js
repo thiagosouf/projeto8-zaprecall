@@ -1,7 +1,7 @@
 import React from "react";
 import Perguntas from "./Perguntas"
 const maximoCards = 8
-let x = false
+let x = 0
 
 export default function TelaPerguntas() {
 
@@ -20,7 +20,6 @@ export default function TelaPerguntas() {
                 <Perguntas
                     contadorSoma={contadorSoma} criaIcones={criaIcones}
                 />
-                {console.log(x)}
             </nav>
             <footer>
                 <span>{contador}/{maximoCards} CONCLUíDOS</span>
@@ -38,11 +37,9 @@ export default function TelaPerguntas() {
             <Perguntas
                 contadorSoma={contadorSoma} criaIcones={criaIcones}
             />
-            {console.log(x)}
         </nav>
             <footer style={{height:112, justifyContent:"space-evenly", alignItems:"center"}}>
-                <End x={(icones.indexOf('./img/red.png'))} />
-
+                <End x={icones.indexOf('./img/red.png')} />
                 <div className="icones-footer">
                     {icones.map((i) => (<img src={i}></img>))}
                 </div>
@@ -61,9 +58,8 @@ function Header() {
     )
 }
 
-function End(){
-   
-    return (x===-1)?(<><span><img src="./img/parabens.png"></img>PARABÉNS!</span><span className="textoFinal">Você não esqueceu de nenhum flashcard!</span></>)
+function End(props){
+    return ((props.x)===-1)?(<><span><img src="./img/parabens.png"></img>PARABÉNS!</span><span className="textoFinal">Você não esqueceu de nenhum flashcard!</span></>)
                 :(<><span><img src="./img/putz.png"></img>PUTZ!</span><span className="textoFinal">
                     Ainda faltaram alguns...
                     Mas não desanime!</span></>)
