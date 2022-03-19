@@ -1,53 +1,60 @@
 import React from "react"
-
-
-
+let end = 0
 function Perguntas(props) {
     
-    const [pergunta, setPergunta] = React.useState(<Pergunta opcao={props.opcao}/>)
-      
+    const [pergunta, setPergunta] = React.useState(<Pergunta  icone={"./img/play.png"} opcao={props.opcao} styleTxt={'none'} styleCor={""}/>)
+    
 
     return (
-        <button onClick={() => setPergunta(<Card resposta={props.resposta} card={props.card} opcao={props.opcao}/>)} >
+        <button onClick={() => {
+            
+            setPergunta(<Card opcao={props.opcao} icone={"./img/play.png"} card={props.card} resposta={props.resposta} contadorSoma={props.contadorSoma} criaIcones={props.criaIcones} />)}} >
             {pergunta}
             
         </button>
-    )
+    )   
 }
 
 function Pergunta(props){
     return(
-        <div className="botaoPergunta">
+        <div className="botaoPergunta" style={{textDecoration: props.styleTxt,color: props.styleCor}}>
             <span>{props.opcao}</span>
-            <img src="./img/play.png"></img>
+            <img src={props.icone}></img>
         </div>
     )
 }
 
 function Card(props){
     const [card, setCard] = React.useState(false)
-    const [pergunta, setPergunta] = React.useState(<Pergunta opcao={props.opcao}/>)
+    const [click, setClick] = React.useState({color:"black", icone:"./img/play.png"})
+    
     return !card ?(
-        <div className="card">
+        <div className="card" >
             <span>{props.card}</span>
             <button onClick={()=>setCard(true)}><img className="setinha" src="./img/setinha.png"></img></button>
         </div>
-    ) :(
-        // *******************8*********TEMOS ALGUMA COISA AQUI    O pergunta vai ser a resposta e o set vai ser a volta
-        <>{pergunta}</>
-        // <div className="card">
-        //     <span>{props.resposta}</span>
-        //     <div className="botoes">
-        //     <button className="nao-lembrei" >Não lembrei</button>
-        //     <button className="quase" >Quase não lembrei</button>
-        //     <button className="zap" >Zap!</button>
-        //     </div>
+    ) :
+    (click.color==="black")?(
+        
+        <>
+        
+        <div className="card">
+            <span>{props.resposta}</span>
+            <div className="botoes">
+            <button onClick={()=>{props.contadorSoma();props.criaIcones("./img/red.png");setClick({color:"#FF3030", icone:"./img/red.png"})}} className="nao-lembrei">Não lembrei</button>
+            <button onClick={()=>{props.contadorSoma();props.criaIcones("./img/yellow.png");setClick({color:"#FF922E", icone:"./img/yellow.png"})}}  className="quase">Quase não lembrei</button>
+            <button onClick={()=>{props.contadorSoma();props.criaIcones("./img/green.png");end=1;setClick({color:"#2FBE34", icone:"./img/green.png"})}} className="zap">Zap!</button>
             
-        // </div>
-    )
+           
+            </div>
+            
+        </div>
+        </>
+    ):(<><Pergunta opcao={props.opcao} icone={props.icone}styleTxt={"line-through"} styleCor={click.color} icone={click.icone}/>{console.log(end=end+1)}</>)
 }
 
-export default function ChamarPerguntas(){
+export default function ChamarPerguntas(props){
+
     const parametros = [
         {opcao:"Pergunta 1", card:"O que é JSX?", resposta:"Uma extensão de linguagem do JavaScript"},
         {opcao:"Pergunta 2", card:"O React é __", resposta:"Uma biblioteca JavaScript para construção de interfaces"},
@@ -62,7 +69,7 @@ export default function ChamarPerguntas(){
     return(
         <>
         {parametros.map(dados =>
-            <Perguntas opcao={dados.opcao} card={dados.card} resposta={dados.resposta}/>)}
+            <Perguntas contadorSoma={props.contadorSoma} criaIcones={props.criaIcones} opcao={dados.opcao} card={dados.card} resposta={dados.resposta}/>)}
         </>
     )
 }
