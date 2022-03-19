@@ -1,10 +1,12 @@
-
-  import ChamarPerguntas from "./Perguntas"
+import React from "react";
 import Perguntas from "./Perguntas"
-// import CardPerguntas from "./CardPerguntas"
+
   
   export default function TelaPerguntas() {
     
+    const [contador, setContador] = React.useState(0);
+    console.log(contador)
+    function contadorSoma(){setContador(contador+1)}
 
     return (
         <div className="tela-perguntas">
@@ -13,11 +15,12 @@ import Perguntas from "./Perguntas"
                 <span className="tituloPadrao">ZapRecall</span>
             </header>
             <nav>
-                <Perguntas />
-                {/* <CardPerguntas /> */}
+                <Perguntas 
+                 contadorSoma={contadorSoma}
+                 />               
             </nav>
             <footer>
-                <span>0/4 CONCLUíDOS</span>
+                <span>{contador}/8 CONCLUíDOS</span>
             </footer>
 
         </div>

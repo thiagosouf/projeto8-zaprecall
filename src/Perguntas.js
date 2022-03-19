@@ -1,12 +1,14 @@
 import React from "react"
 
 function Perguntas(props) {
-
+    
     const [pergunta, setPergunta] = React.useState(<Pergunta opcao={props.opcao} styleTxt={'none'} styleCor={""}/>)
     
 
     return (
-        <button onClick={() => setPergunta(<Card opcao={props.opcao} card={props.card} resposta={props.resposta}/>)} >
+        <button onClick={() => {
+            
+            setPergunta(<Card opcao={props.opcao} card={props.card} resposta={props.resposta} contadorSoma={props.contadorSoma}/>)}} >
             {pergunta}
             
         </button>
@@ -33,21 +35,26 @@ function Card(props){
         </div>
     ) :
     (click==="black")?(
+        
         <>
+        
         <div className="card">
             <span>{props.resposta}</span>
             <div className="botoes">
-            <button onClick={()=>setClick("#FF3030")} className="nao-lembrei">Não lembrei</button>
-            <button onClick={()=>setClick("#FF922E")} className="quase">Quase não lembrei</button>
-            <button onClick={()=>setClick("#2FBE34")} className="zap">Zap!</button>
+            <button onClick={()=>{props.contadorSoma();setClick("#FF3030")}} className="nao-lembrei">Não lembrei</button>
+            <button onClick={()=>{props.contadorSoma();setClick("#FF922E")}} className="quase">Quase não lembrei</button>
+            <button onClick={()=>{props.contadorSoma();setClick("#2FBE34")}} className="zap">Zap!</button>
+                   
+            
             </div>
             
         </div>
         </>
-    ):(<Pergunta opcao={props.opcao} styleTxt={"line-through"} styleCor={click}/>)
+    ):(<><Pergunta opcao={props.opcao} styleTxt={"line-through"} styleCor={click}/></>)
 }
 
-export default function ChamarPerguntas(){
+export default function ChamarPerguntas(props){
+
     const parametros = [
         {opcao:"Pergunta 1", card:"O que é JSX?", resposta:"Uma extensão de linguagem do JavaScript"},
         {opcao:"Pergunta 2", card:"O React é __", resposta:"Uma biblioteca JavaScript para construção de interfaces"},
@@ -62,7 +69,7 @@ export default function ChamarPerguntas(){
     return(
         <>
         {parametros.map(dados =>
-            <Perguntas opcao={dados.opcao} card={dados.card} resposta={dados.resposta}/>)}
+            <Perguntas contadorSoma={props.contadorSoma} opcao={dados.opcao} card={dados.card} resposta={dados.resposta}/>)}
         </>
     )
 }
