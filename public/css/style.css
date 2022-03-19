@@ -40,12 +40,6 @@ body{
 
 }
 /* Tela2 */
-/* .telaPerguntas{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
 
 .header{
     display: flex;
@@ -173,4 +167,41 @@ footer img{
 
 .icones-footer img{
     margin-right: 2px;
+}
+
+@media (min-width: 400px){
+    .logoPadrao{
+        height: 40px;
+        width: 46px;
+    }
+    .tituloPadrao{
+        font-size: 32px;
+    }
+
+    .botaoPergunta{
+        height: 55px;
+        width: 340px;
+        font-size: 17px;
+    }
+    .botaoPergunta img{
+        height: 22px;
+        width: 22px;
+        margin-right: 5px;
+    }
+    .card{
+        width: 340px;
+        font-size: 17px;
+    }
+
+    .nao-lembrei, .quase, .zap{
+        height: 34px;
+        width: 85px;
+        font-size: 13px;
+    }
+
+    footer{
+        font-size: 19px;
+    }
+    
+
 }
