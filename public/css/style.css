@@ -98,7 +98,7 @@ nav button{
 }
 
 .card{
-    min-height: 64px;
+    min-height: 120px;
     width: 180px;
     background-color: #FFFFD4;
     font-family: 'Recursive', sans-serif;
@@ -108,6 +108,9 @@ nav button{
     text-align: left;
     position: relative;
     margin: 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 }
 
@@ -122,8 +125,7 @@ nav button{
     align-items:flex-end;
     justify-content: space-evenly;
     margin-top: 5px;
-    /* position: absolute;
-    bottom: 0; */
+    bottom: 0;
 }
 .nao-lembrei, .quase, .zap{
     height: 24px;

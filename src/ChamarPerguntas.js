@@ -1,6 +1,5 @@
 import React from "react"
 import Perguntas from "./Perguntas"
-import Pergunta from "./Pergunta"
 
 let parametros = [
     {opcao:"Pergunta 1", card:"O que é JSX?", resposta:"Uma extensão de linguagem do JavaScript"},
