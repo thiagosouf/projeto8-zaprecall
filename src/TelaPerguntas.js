@@ -1,5 +1,7 @@
 import React from "react";
-import Perguntas from "./Perguntas"
+import Header from "./Header";
+import ChamarPerguntas from "./ChamarPerguntas";
+import End from "./End";
 const maximoCards = 8
 let x = 0
 
@@ -17,7 +19,7 @@ export default function TelaPerguntas() {
         <div className="tela-perguntas">
             <Header />
             <nav>
-                <Perguntas
+                <ChamarPerguntas
                     contadorSoma={contadorSoma} criaIcones={criaIcones}
                 />
             </nav>
@@ -34,7 +36,7 @@ export default function TelaPerguntas() {
         <div className="tela-perguntas">
         <Header />
         <nav>
-            <Perguntas
+            <ChamarPerguntas
                 contadorSoma={contadorSoma} criaIcones={criaIcones}
             />
         </nav>
@@ -49,18 +51,5 @@ export default function TelaPerguntas() {
     )
 }
 
-function Header() {
-    return (
-        <header className="header">
-            <img className="logoPadrao" src="./img/logo.png" ></img>
-            <span className="tituloPadrao">ZapRecall</span>
-        </header>
-    )
-}
 
-function End(props){
-    return ((props.x)===-1)?(<><span><img src="./img/parabens.png"></img>PARABÉNS!</span><span className="textoFinal">Você não esqueceu de nenhum flashcard!</span></>)
-                :(<><span><img src="./img/putz.png"></img>PUTZ!</span><span className="textoFinal">
-                    Ainda faltaram alguns...
-                    Mas não desanime!</span></>)
-}
+
